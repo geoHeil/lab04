@@ -1,5 +1,6 @@
 # LIU-TDDD43 Advanced Data Models and Databases lab4: NOSQL
 This is my lab-exercise developed in a more reproducible + testable way: dependency management + docker-integration.
+The "basic" exercise resides here: https://www.ida.liu.se/~TDDD43/themes/themeNOSQLlabs/LabNOSQL.pdf
 
 ## Installation
 
@@ -49,4 +50,8 @@ docker-compose stop
 
 
 ## spoiler
-Hive http://stackoverflow.com/questions/15276208/using-xpath-in-hive implements similar functionality.
+  - Hive http://stackoverflow.com/questions/15276208/using-xpath-in-hive implements similar functionality.
+  - Pig https://pig.apache.org/docs/r0.14.0/perf.html#nulls
+
+## Improvements
+  - use https://github.com/linkedin/linkedin-gradle-plugin-for-apache-hadoop/wiki/Hadoop-DSL-Language-Reference
