@@ -13,7 +13,7 @@ This is my lab-exercise developed in a more reproducible + testable way: depende
 **Docker**
 Make sure the local hadoop cluster is running using: 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 **IntelliJ Project**
