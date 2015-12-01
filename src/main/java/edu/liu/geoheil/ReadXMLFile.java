@@ -4,6 +4,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import java.net.URL;
+
 
 public class ReadXMLFile {
 
@@ -26,8 +28,10 @@ public class ReadXMLFile {
             }
 
             parser.setContentHandler(new XMLCounter());
+            URL sqlScriptUrl = ReadXMLFile.class
+                    .getClassLoader().getResource("BIOMD0000000009.xml");
 
-            parser.parse("BIOMD0000000009.xml");
+            parser.parse(sqlScriptUrl.toString());
 
         } catch (Exception e) {
             e.printStackTrace();

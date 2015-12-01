@@ -31,8 +31,11 @@ docker-compose up -d
 
 **NOTE:**The (local) hadoop cluster is up and running before proceeding.
 
-First, select the class `all:edu.liu.geoheil.Main`, right-click and choose *Run*.
-This will create a run configuration. 
+First, select the class `src:edu.liu.geoheil.JoinMain`, right-click and choose *Run*.
+This will create a run configuration for the hadoop-part of the exercise.
+ 
+First, select the class `src:edu.liu.geoheil.ReadXMLFile`, right-click and choose *Run*.
+This will create a run configuration for the pre-processing step of the exercise.
  
 ## CMD- usage
 ```
