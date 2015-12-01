@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml level="2" metaid="_770249" version="4">
+    <model id="Huang1996_MAPK_ultrasens" metaid="_000001" name="Huang1996_MAPK_ultrasens">
+        <notes/>
+        <annotation/>
+        <listOfUnitDefinitions>
+            <unitDefinition id="substance" metaid="metaid_0000046" name="micromole">
+                <listOfUnits>
+                    <unit kind="mole" scale="-6"/>
+                </listOfUnits>
+            </unitDefinition>
+        </listOfUnitDefinitions>
+        <listOfCompartments>
+            <compartment id="compartment" metaid="_506358" size="4e-12"/>
+        </listOfCompartments>
+        <listOfSpecies>
+            <species compartment="compartment" id="E1"
+                initialConcentration="3e-05" metaid="_506372" name="MAPKKK activator">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="E2"
+                initialConcentration="0.0003" metaid="_506392" name="MAPKKK inactivator"/>
+            <species compartment="compartment" id="KKK"
+                initialConcentration="0.003" metaid="_506412" name="MAPKKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="P_KKK"
+                initialConcentration="0" metaid="_506432" name="P-MAPKKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KK"
+                initialConcentration="1.2" metaid="_506452" name="MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="P_KK"
+                initialConcentration="0" metaid="_506472" name="P-MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="PP_KK"
+                initialConcentration="0" metaid="_506492" name="PP-MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="K"
+                initialConcentration="1.2" metaid="_506512" name="MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="P_K"
+                initialConcentration="0" metaid="_506532" name="P-MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="PP_K"
+                initialConcentration="0" metaid="_506552" name="PP-MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KPase"
+                initialConcentration="0.12" metaid="_506572" name="MAPK-Pase">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KKPase"
+                initialConcentration="0.0003" metaid="_506592" name="MAPKK-Pase"/>
+            <species compartment="compartment" id="E1_KKK"
+                initialConcentration="0" metaid="_506612" name="activ_MAPKKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="E2_P_KKK"
+                initialConcentration="0" metaid="_506632" name="inact_P-MAPKKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="P_KKK_KK"
+                initialConcentration="0" metaid="_506652" name="P-MAPKKK_MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="P_KKK_P_KK"
+                initialConcentration="0" metaid="_506672" name="P-MAPKKK_P-MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="PP_KK_K"
+                initialConcentration="0" metaid="_506692" name="PP-MAPKK_MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="PP_KK_P_K"
+                initialConcentration="0" metaid="_506712" name="PP-MAPKK_P-MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KKPase_PP_KK"
+                initialConcentration="0" metaid="_506732" name="MAPKK-Pase_PP-MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KKPase_P_KK"
+                initialConcentration="0" metaid="_506752" name="MAPKK-Pase_P-MAPKK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KPase_PP_K"
+                initialConcentration="0" metaid="_506772" name="MAPK-Pase_PP-MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="KPase_P_K"
+                initialConcentration="0" metaid="_506792" name="MAPK-Pase_P-MAPK">
+                <annotation/>
+            </species>
+            <species compartment="compartment" id="K_PP_norm"
+                metaid="metaid_0000047" name="K_PP_norm"/>
+            <species compartment="compartment" id="KK_PP_norm"
+                metaid="metaid_0000048" name="KK_PP_norm"/>
+            <species compartment="compartment" id="KKK_P_norm"
+                metaid="metaid_0000049" name="KKK_P_norm"/>
+            <species compartment="compartment" id="rel_K_PP_max"
+                metaid="metaid_0100049" name="relative maximal K_PP"/>
+        </listOfSpecies>
+        <listOfParameters>
+            <parameter id="K_PP_norm_max" metaid="metaid_0011050" value="0.900049">
+                <notes/>
+            </parameter>
+        </listOfParameters>
+        <listOfRules>
+            <assignmentRule metaid="metaid_0000050" variable="K_PP_norm">
+                <math/>
+            </assignmentRule>
+            <assignmentRule metaid="met100050" variable="rel_K_PP_max">
+                <math/>
+            </assignmentRule>
+            <assignmentRule metaid="metai0051" variable="KK_PP_norm">
+                <math/>
+            </assignmentRule>
+            <assignmentRule metaid="metaid_0000052" variable="KKK_P_norm">
+                <math/>
+            </assignmentRule>
+        </listOfRules>
+        <listOfReactions>
+            <reaction id="r1a" metaid="_506812" name="binding of MAPKKK activator">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="KKK"/>
+                    <speciesReference species="E1"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="E1_KKK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a1" metaid="_815886" value="1000"/>
+                        <parameter id="d1" metaid="_815887" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r1b" metaid="_506833" name="MAPKKK activation" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="E1_KKK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="E1"/>
+                    <speciesReference species="P_KKK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k2" metaid="_815888" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r2a" metaid="_506853" name="binding of MAPKKK inactivator">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_KKK"/>
+                    <speciesReference species="E2"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="E2_P_KKK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a2" metaid="_815889" value="1000"/>
+                        <parameter id="d2" metaid="_815890" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r2b" metaid="_506873"
+                name="MAPKKK inactivation" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="E2_P_KKK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="E2"/>
+                    <speciesReference species="KKK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k2" metaid="_815891" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r3a" metaid="_506893" name="binding P-MAPKKK and MAPKK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="KK"/>
+                    <speciesReference species="P_KKK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="P_KKK_KK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a3" metaid="_815892" value="1000"/>
+                        <parameter id="d3" metaid="_815893" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r3b" metaid="_506913"
+                name="phosphorylation of MAPKK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_KKK_KK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="P_KK"/>
+                    <speciesReference species="P_KKK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k3" metaid="_815894" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r4a" metaid="_506933" name="binding MAPKK-Pase and P-MAPKK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_KK"/>
+                    <speciesReference species="KKPase"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="KKPase_P_KK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a4" metaid="_815895" value="1000"/>
+                        <parameter id="d4" metaid="_815896" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r4b" metaid="_506953"
+                name="dephosphorylation of P-MAPKK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="KKPase_P_KK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="KK"/>
+                    <speciesReference species="KKPase"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k4" metaid="_815897" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r5a" metaid="_506973" name="binding P-MAPKKK and P-MAPKK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_KK"/>
+                    <speciesReference species="P_KKK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="P_KKK_P_KK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a5" metaid="_815899" value="1000"/>
+                        <parameter id="d5" metaid="_815901" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r5b" metaid="_506993"
+                name="phosphorylation of P-MAPKK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_KKK_P_KK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="PP_KK"/>
+                    <speciesReference species="P_KKK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k5" metaid="_815902" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r6a" metaid="_507013" name="binding MAPKK-Pase and PP-MAPKK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="PP_KK"/>
+                    <speciesReference species="KKPase"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="KKPase_PP_KK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a6" metaid="_815903" value="1000"/>
+                        <parameter id="d6" metaid="_815904" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r6b" metaid="_507033"
+                name="dephosphorylation of PP-MAPKK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="KKPase_PP_KK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="P_KK"/>
+                    <speciesReference species="KKPase"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k6" metaid="_815905" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r7a" metaid="_507053" name="binding MAPK and PP-MAPKK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="K"/>
+                    <speciesReference species="PP_KK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="PP_KK_K"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a7" metaid="_815906" value="1000"/>
+                        <parameter id="d7" metaid="_815907" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r7b" metaid="_507073"
+                name="phosphorylation of MAPK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="PP_KK_K"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="P_K"/>
+                    <speciesReference species="PP_KK"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k7" metaid="_815908" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r8a" metaid="_507093" name="binding MAPK-Pase and P-MAPK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_K"/>
+                    <speciesReference species="KPase"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="KPase_P_K"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a8" metaid="_815909" value="1000"/>
+                        <parameter id="d8" metaid="_815910" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r8b" metaid="_507113"
+                name="dephosphorylation of P-MAPK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="KPase_P_K"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="K"/>
+                    <speciesReference species="KPase"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k8" metaid="_815911" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r9a" metaid="_507133" name="binding PP-MAPKK and P-MAPK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="P_K"/>
+                    <speciesReference species="PP_KK"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="PP_KK_P_K"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a9" metaid="_815912" value="1000"/>
+                        <parameter id="d9" metaid="_815913" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r9b" metaid="_507153"
+                name="phosphorylation of P-MAPK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="PP_KK_P_K"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="PP_KK"/>
+                    <speciesReference species="PP_K"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k9" metaid="_815914" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r10a" metaid="_507173" name="binding MAPK-Pase and PP-MAPK">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="PP_K"/>
+                    <speciesReference species="KPase"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="KPase_PP_K"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="a10" metaid="_815916" value="1000"/>
+                        <parameter id="d10" metaid="_815918" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+            <reaction id="r10b" metaid="_507193"
+                name="dephosphorylation of PP-MAPK" reversible="false">
+                <annotation/>
+                <listOfReactants>
+                    <speciesReference species="KPase_PP_K"/>
+                </listOfReactants>
+                <listOfProducts>
+                    <speciesReference species="P_K"/>
+                    <speciesReference species="KPase"/>
+                </listOfProducts>
+                <kineticLaw>
+                    <math/>
+                    <listOfParameters>
+                        <parameter id="k10" metaid="_815919" value="150"/>
+                    </listOfParameters>
+                </kineticLaw>
+            </reaction>
+        </listOfReactions>
+    </model>
+</sbml>
