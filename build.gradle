@@ -1,3 +1,7 @@
+plugins {
+    id "com.bmuschko.docker-remote-api" version "2.6.1"
+}
+
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
@@ -9,8 +13,11 @@ apply plugin: 'com.bmuschko.docker-remote-api'
 apply plugin: 'com.bmuschko.docker-java-application'
 
 
-group = 'se.liu.geoheil'
-version = '0.1'
+jar {
+    group = 'se.liu.geoheil'
+    baseName = 'lab04-current.geoHeil'
+    version = '0.1.0'
+}
 
 repositories {
     mavenCentral()
@@ -18,17 +25,11 @@ repositories {
 }
 
 dependencies {
-    compile 'org.apache.hadoop:hadoop-common:2.7.1'
-    compile 'org.apache.hadoop:hadoop-client:2.7.1'
-    compile 'org.apache.hadoop:hadoop-mapreduce-client-core:2.7.1'
-    classpath 'com.bmuschko:gradle-docker-plugin:2.6.1'
-
+    compile group: 'org.apache.hadoop', name: 'hadoop-common', version: '2.7.1'
+    compile group: 'org.apache.hadoop', name: 'hadoop-client', version: '2.7.1'
+    compile group: 'org.apache.hadoop', name: 'hadoop-mapreduce-client-core', version: '2.7.1'
 }
 
-jar {
-    baseName = 'lab04-current.geoHeil'
-    version = '0.1.0'
-}
 
 uploadArchives {
     repositories {
@@ -47,6 +48,20 @@ idea {
         languageLevel = '1.8'
     }
 
-    downloadJavadoc = true
-    downloadSources = false
+docker {
+    // Local docker-machine URL find via following command. Default should be something like http://192.168.99.100
+    url = ['docker-machine', 'ip', 'default'].execute().text
+
+    registryCredentials {
+        username = project.hasProperty('dockerHubUsername') ? project.property('dockerHubUsername') : null
+        password = project.hasProperty('dockerHubPassword') ? project.property('dockerHubPassword') : null
+        email = project.hasProperty('dockerHubEmail') ? project.property('dockerHubEmail') : null
+    }
+
+    javaApplication {
+        baseImage = 'java:8'
+        maintainer = 'Georg Heiler "georg.kf.heiler@gmail.com'
+        port = 8080
+        tag = registryCredentials.url + '/lab04' + version
+    }
 }

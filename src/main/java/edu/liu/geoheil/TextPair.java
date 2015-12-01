@@ -2,7 +2,7 @@
 // cc TextPairComparator A RawComparator for comparing TextPair byte representations
 // cc TextPairFirstComparator A custom RawComparator for comparing the first field of TextPair byte representations
 // vv TextPair
-package org.myorg;
+package edu.liu.geoheil;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;

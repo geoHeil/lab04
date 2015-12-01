@@ -1,4 +1,4 @@
-package org.myorg;
+package edu.liu.geoheil;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;

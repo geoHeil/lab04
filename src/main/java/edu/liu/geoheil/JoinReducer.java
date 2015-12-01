@@ -1,6 +1,6 @@
 // cc JoinReducer Reducer for join
 
-package org.myorg;
+package edu.liu.geoheil;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;

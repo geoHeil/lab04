@@ -1,4 +1,4 @@
-package org.myorg;
+package edu.liu.geoheil;
 
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
