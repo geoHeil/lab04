@@ -46,3 +46,7 @@ gradle.properties must contain credentials for docker-hub to work properly
 ```
 docker-compose stop
 ```
+
+
+## spoiler
+Hive http://stackoverflow.com/questions/15276208/using-xpath-in-hive implements similar functionality.
