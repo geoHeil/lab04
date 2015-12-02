@@ -14,10 +14,25 @@ The "basic" exercise resides here: https://www.ida.liu.se/~TDDD43/themes/themeNO
 **Docker**
 Make sure the local hadoop cluster is running using: 
 
-*TODO* use https://github.com/lresende/docker-yarn-cluster
+Compile the following hadoop container https://github.com/lresende/docker-yarn-cluster
+and then run it using
 ```
 docker-compose up -d
 docker exec -ti namenode /bin/bash
+```
+Create a jar using `gradle jar`. It can be submitted as a job to the hadoop cluster as follows:
+```
+cd $HADOOP_PREFIX
+
+# add input files
+bin/hdfs dfs -mkdir -p /user/root
+bin/hdfs dfs -put $HADOOP_PREFIX/etc/hadoop/ input
+
+# run the mapreduce
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.1.jar grep input output 'dfs[a-z.]+'
+
+# check the output
+bin/hdfs dfs -cat output/*
 ```
 
 **IntelliJ Project**
@@ -62,3 +77,4 @@ docker-compose stop
 
 ## Improvements
   - use https://github.com/linkedin/linkedin-gradle-plugin-for-apache-hadoop/wiki/Hadoop-DSL-Language-Reference
+  - fix problems in docker-deploy `gradle dockerBuildImage`
