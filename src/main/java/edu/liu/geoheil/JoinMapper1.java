@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 /***
  * Map task 1: Take a triple from file01, check whether the attribute name is
@@ -23,19 +24,21 @@ public class JoinMapper1
 /* here define the variables */
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    private Text word = new Text();
 
     @Override
     protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
 
         logger.debug("Key" + key);
-        logger.debug("Text" + key);
-        logger.debug("Context" + key);
+        logger.debug("Text" + value);
 
-/* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
-
-
+        String line = value.toString();
+        StringTokenizer tokenizer = new StringTokenizer(line);
+        while (tokenizer.hasMoreTokens()) {
+            word.set(tokenizer.nextToken());
+//            output.collect(word, one);
+        }
     }
+/* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
 }
-//^^ JoinMapper1
