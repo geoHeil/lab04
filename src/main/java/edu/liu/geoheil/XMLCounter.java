@@ -5,16 +5,20 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
-import java.util.HashMap;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 public class XMLCounter implements ContentHandler {
 
     /* here comes var declaration */
     Stack<Integer> deweyNumber;
-    // element qualified path (attr key, attr val)
-    HashMap<String, HashMap<String, String>> elemAttributes;
 
     public void startDocument() throws SAXException {
 
@@ -27,19 +31,26 @@ public class XMLCounter implements ContentHandler {
                              Attributes attributes) throws SAXException {
         /**
          * Stuff for the elements.
-         * Saved to file manually
          */
         System.out.println(printStack(deweyNumber) + " " + qName);
-        deweyNumber.push(1);
+
+        String path = "result/" + qName + "/tag-" + qName;
+        List<String> fileContent = new ArrayList<>();
+        fileContent.add(printStack(deweyNumber) + " " + qName);
+        try {
+            writeFile(fileContent, path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         /**
          * For the attributes
-         * saved manually to file
          */
 //        for (int i = 0; i < attributes.getLength(); i++) {
 //            System.out.println(printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
 //        }
-//        deweyNumber.push(1);
+        deweyNumber.push(1);
+
     }
 
     public String printStack(Stack<Integer> stack) {
@@ -87,13 +98,27 @@ public class XMLCounter implements ContentHandler {
 //        writeFile(tags, "result/tags");
     }
 
-//    private void writeFile(List<String> document, String pathName) {
-//        try {
-//            Files.write(Paths.get(pathName), document);
-//        } catch (IOException e) {
-//            e.printStackTrace();
+    private void writeFile(List<String> document, String pathName) throws IOException {
+
+        Path path = Paths.get(pathName);
+
+        if (Files.notExists(path, LinkOption.NOFOLLOW_LINKS)) {
+            Files.createDirectories(path.getParent());
+
+            Files.createFile(path);
+        }
+        List<String> lines = Files.readAllLines(path);
+        lines.addAll(document);
+        Files.write(path, lines);
+//        File directory = new File(String.valueOf(directoryName));
+//        if (! directory.exists()){
+//            directory.mkdir();
 //        }
-//    }
+
+//        Path newDir = Files.createDirectory(path);
+        // write the line & append
+
+    }
 
     // Do-nothing methods we have to implement only to fulfill
     // the interface requirements:

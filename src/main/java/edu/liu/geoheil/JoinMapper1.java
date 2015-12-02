@@ -8,6 +8,12 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
+/***
+ * Map task 1: Take a triple from file01, check whether the attribute name is
+ * “species” and the attribute value contains the string “P_KK”. If this is true,
+ * retrieve the prefix of the current dewey_pid and send it as the key to the reduce
+ * task.
+ */
 //vv JoinMapper1
 public class JoinMapper1
         extends Mapper<LongWritable, Text, TextPair, Text> {
