@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 /***
  * Map task 1: Take a triple from file01, check whether the attribute name is
@@ -24,21 +23,32 @@ public class JoinMapper1
 /* here define the variables */
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private Text word = new Text();
+    private Text valueOut = new Text();
+    private Text textFirst = new Text();
+    private Text textSecond = new Text();
+    private TextPair keysOut = new TextPair();
 
     @Override
     protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
 
-        logger.debug("Key" + key);
-        logger.debug("Text" + value);
+        /* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
+        String str = value.toString();
+        /**
+         Given a dewey_pid (id) from file01 or file02, we can easily obtain the dewey_pid
+         of reaction by removing the last two digits from id.
+         For instance, if the dewey_pid from file01 is 1.1 .3 .4
+         then the dewey_pid of reaction would be 1.1 --> (-) 5 as 4 for digits + point
+         */
+        String realKey = str.substring(0, str.indexOf(' '));
+        textFirst.set(realKey.substring(0, realKey.length() - 4));
+        textSecond.set(realKey);
+        keysOut.set(textFirst, textSecond);
+        valueOut.set(str.substring(str.indexOf(' ') + 1));
 
-        String line = value.toString();
-        StringTokenizer tokenizer = new StringTokenizer(line);
-        while (tokenizer.hasMoreTokens()) {
-            word.set(tokenizer.nextToken());
-//            output.collect(word, one);
-        }
+        logger.debug("KEY " + keysOut);
+        logger.debug("VALUE " + valueOut);
+
+        context.write(keysOut, valueOut);
     }
-/* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
 }
