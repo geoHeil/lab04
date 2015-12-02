@@ -10,6 +10,9 @@
     <logger name="edu.liu.geoheil" level="TRACE"/>
 
 
+    <logger name="org.apache.hadoop" level="info" />
+
+
     <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>

@@ -77,4 +77,4 @@ docker-compose stop
 
 ## Improvements
   - use https://github.com/linkedin/linkedin-gradle-plugin-for-apache-hadoop/wiki/Hadoop-DSL-Language-Reference
-  - fix problems in docker-deploy `gradle dockerBuildImage`
+  - fix problems in docker-deploy `gradle dockerBuildImage
