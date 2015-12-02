@@ -73,7 +73,7 @@ task setDockerIP << {
 
 docker {
     // Local docker-machine URL find via following command. Default should be something like http://192.168.99.100
-    url = ['docker-machine', 'ip', 'default'].execute().text
+    url = ['docker-machine', 'ip', 'default'].execute().text.trim()
 
     registryCredentials {
         username = project.hasProperty('dockerHubUsername') ? project.property('dockerHubUsername') : null

@@ -13,8 +13,11 @@ The "basic" exercise resides here: https://www.ida.liu.se/~TDDD43/themes/themeNO
     
 **Docker**
 Make sure the local hadoop cluster is running using: 
+
+*TODO* use https://github.com/lresende/docker-yarn-cluster
 ```
 docker-compose up -d
+docker exec -ti namenode /bin/bash
 ```
 
 **IntelliJ Project**
@@ -55,6 +58,7 @@ docker-compose stop
 ## spoiler
   - Hive http://stackoverflow.com/questions/15276208/using-xpath-in-hive implements similar functionality.
   - Pig https://pig.apache.org/docs/r0.14.0/perf.html#nulls
+  - the DeweyIDs could be generated using https://code.google.com/p/ufrgs-dbproject/source/browse/trunk/xml-relational-mapper/src/main/java/br/ufrgs/dbproject/idgenerator/DeweyIDGenerator.java?r=24&spec=svn24
 
 ## Improvements
   - use https://github.com/linkedin/linkedin-gradle-plugin-for-apache-hadoop/wiki/Hadoop-DSL-Language-Reference
