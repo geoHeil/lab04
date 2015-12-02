@@ -19,7 +19,5 @@ public class JoinMapper2
 
 
 /* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
-
     }
 }
-// ^^ JoinMapper2
