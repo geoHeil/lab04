@@ -2,6 +2,7 @@
 package edu.liu.geoheil;
 
 
+import org.apache.commons.io.FileUtils;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -11,6 +12,11 @@ import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 // vv JoinMain
 public class JoinMain extends Configured implements Tool {
@@ -52,6 +58,8 @@ public class JoinMain extends Configured implements Tool {
   }
 
   public static void main(String[] args) throws Exception {
+    FileUtils.deleteDirectory(new File("result/output"));
+
     int exitCode = ToolRunner.run(new JoinMain(), args);
     System.exit(exitCode);
   }
