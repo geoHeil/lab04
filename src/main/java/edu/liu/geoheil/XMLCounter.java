@@ -32,13 +32,13 @@ public class XMLCounter implements ContentHandler {
         /**
          * Stuff for the elements.
          */
-        System.out.println(printStack(deweyNumber) + " " + qName);
+        System.out.println("TAG" + printStack(deweyNumber) + " " + qName);
 
         String path = "result/" + qName + "/tag-" + qName;
-        List<String> fileContent = new ArrayList<>();
-        fileContent.add(printStack(deweyNumber) + " " + qName);
+        List<String> fileContentTags = new ArrayList<>();
+        fileContentTags.add(printStack(deweyNumber) + " " + qName);
         try {
-            writeFile(fileContent, path);
+            writeFile(fileContentTags, path);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,9 +46,17 @@ public class XMLCounter implements ContentHandler {
         /**
          * For the attributes
          */
-//        for (int i = 0; i < attributes.getLength(); i++) {
-//            System.out.println(printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
-//        }
+        for (int i = 0; i < attributes.getLength(); i++) {
+            System.out.println("ATTR" + printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
+            String pathAttr = "result/" + qName + "/attribute-" + qName;
+            List<String> fileContentAttr = new ArrayList<>();
+            fileContentAttr.add(printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i) + " " + qName);
+            try {
+                writeFile(fileContentAttr, pathAttr);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         deweyNumber.push(1);
 
     }
