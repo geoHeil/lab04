@@ -7,10 +7,10 @@
         </layout>
     </appender>
 
-    <logger name="edu.liu.geoheil" level="TRACE"/>
+    <logger name="edu.liu.geoheil" level="debug"/>
 
 
-    <logger name="org.apache.hadoop" level="info" />
+    <logger name="org.apache.hadoop" level="error" />
 
 
     <root level="debug">
