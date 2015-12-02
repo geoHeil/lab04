@@ -19,12 +19,15 @@ public class XMLCounter implements ContentHandler {
 
     /* here comes var declaration */
     Stack<Integer> deweyNumber;
+    Stack<String> parent;
 
     public void startDocument() throws SAXException {
 
      /* here comes the init code */
         deweyNumber = new Stack<>();
+        parent = new Stack<>();
         deweyNumber.push(1);
+        parent.push("1");
     }
 
     public void startElement(String uri, String localName, String qName,
@@ -32,9 +35,9 @@ public class XMLCounter implements ContentHandler {
         /**
          * Stuff for the elements.
          */
-        System.out.println("TAG" + printStack(deweyNumber) + " " + qName);
+        System.out.println("TAG " + printStack(deweyNumber) + " " + qName);
 
-        String path = "result/" + qName + "/tag-" + qName;
+        String path = "result/" + qName + "-" + parent.peek() + "/tag-" + qName;
         List<String> fileContentTags = new ArrayList<>();
         fileContentTags.add(printStack(deweyNumber) + " " + qName);
         try {
@@ -47,8 +50,8 @@ public class XMLCounter implements ContentHandler {
          * For the attributes
          */
         for (int i = 0; i < attributes.getLength(); i++) {
-            System.out.println("ATTR" + printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
-            String pathAttr = "result/" + qName + "/attribute-" + qName;
+            System.out.println("ATTR " + printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
+            String pathAttr = "result/" + qName + "-" + parent.peek() + "/attribute-" + qName;
             List<String> fileContentAttr = new ArrayList<>();
             fileContentAttr.add(printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i) + " " + qName);
             try {
@@ -57,8 +60,8 @@ public class XMLCounter implements ContentHandler {
                 e.printStackTrace();
             }
         }
+        parent.push(qName);
         deweyNumber.push(1);
-
     }
 
     public String printStack(Stack<Integer> stack) {
@@ -78,9 +81,9 @@ public class XMLCounter implements ContentHandler {
     public void endElement(String uri, String localName,
                            String qName) throws SAXException {
         deweyNumber.pop();
+        parent.pop();
         deweyNumber.set(deweyNumber.size() - 1, deweyNumber.peek() + 1);
         /* here comes code after the endElement is met */
-
     }
 
     public void characters(char ch[], int start, int length) throws SAXException {
@@ -93,17 +96,9 @@ public class XMLCounter implements ContentHandler {
 //                new String(ch, start, length));
     }
 
-
     public void endDocument() throws SAXException {
 
         System.out.println("End of docuement ");
-
-        /**
-         * Written to files manually
-         */
-//        List<String> tags = new ArrayList<>();
-//        tags.add("test");
-//        writeFile(tags, "result/tags");
     }
 
     private void writeFile(List<String> document, String pathName) throws IOException {
