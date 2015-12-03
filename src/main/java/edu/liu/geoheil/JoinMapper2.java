@@ -13,18 +13,29 @@ import java.io.IOException;
 public class JoinMapper2
         extends Mapper<LongWritable, Text, TextPair, Text> {
 
-        /* here define the variables */
-        private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    /* here define the variables */
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Text valueOut = new Text();
+    private Text textFirst = new Text();
+    private Text textSecond = new Text();
+    private TextPair keysOut = new TextPair();
 
     @Override
     protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
 
-        logger.debug("Key" + key);
-        logger.debug("Text" + value);
-
-
 /* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
+        String str = value.toString();
+
+        String realKey = str.substring(0, str.indexOf(' '));
+        textFirst.set(realKey.substring(0, realKey.length() - 4));
+        textSecond.set(realKey);
+        keysOut.set(textFirst, textSecond);
+        valueOut.set(str.substring(str.indexOf(' ') + 1));
+
+        logger.debug("KEY " + keysOut);
+        logger.debug("VALUE " + valueOut);
+
+        context.write(keysOut, valueOut);
     }
 }

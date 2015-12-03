@@ -44,9 +44,7 @@
         <JAVADOC>
           <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.hadoop/hadoop-mapreduce-client-core/2.7.1/974fe325fa63bd86a3b56dd7e3229f1327e17ad4/hadoop-mapreduce-client-core-2.7.1-javadoc.jar!/" />
         </JAVADOC>
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.ideaLibSources/hadoop-mapreduce-client-core-2.7.1-sources.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library">

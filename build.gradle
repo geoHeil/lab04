@@ -69,10 +69,8 @@ idea {
 }
 
 docker {
-    // Local docker-machine URL find via following command. Default should be something like http://192.168.99.100
-    // docker-machine url default
-//    url = ['docker-machine', 'ip', 'default'].execute().text.trim()
-    url = "http://192.168.99.100:2376"
+    url = ['docker-machine', 'url', 'default'].execute().text.trim().replaceAll('tcp', 'https')
+    certPath = new File(System.getenv('DOCKER_CERT_PATH'))
     registryCredentials {
         username = project.hasProperty('dockerHubUsername') ? project.property('dockerHubUsername') : null
         password = project.hasProperty('dockerHubPassword') ? project.property('dockerHubPassword') : null
