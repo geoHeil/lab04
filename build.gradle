@@ -81,5 +81,6 @@ docker {
         baseImage = 'java:8'
         maintainer = 'Georg Heiler "georg.kf.heiler@gmail.com'
         port = 8080
+        tag = 'geoheil/lab04-current'
     }
 }
