@@ -29,13 +29,24 @@ public class JoinMapper2
             throws IOException, InterruptedException {
 
 /* here the code for retrieving the triples from file01 and send the prefix of the dewey_pid as key */
-        String str = value.toString();
 
+        String str = value.toString();
+        /**
+         Given a dewey_pid (id) from file01 or file02, we can easily obtain the dewey_pid
+         of reaction by removing the last two digits from id.
+         For instance, if the dewey_pid from file01 is 1.1 .3 .4
+         then the dewey_pid of reaction would be 1.1 --> (-) 5 as 4 for digits + point
+         */
         String realKey = str.substring(0, str.indexOf(' '));
+        String realValue = str.substring(str.indexOf(' ') + 1);
+
         textFirst.set(realKey.substring(0, realKey.length() - 4));
-        textSecond.set(realKey);
+        textSecond.set("mapper2");
         keysOut.set(textFirst, textSecond);
-        valueOut.set(str.substring(str.indexOf(' ') + 1));
+
+        String attrVal = realValue.substring(realValue.indexOf(' ') + 1);
+
+        valueOut.set(attrVal);
 
         logger.debug("KEY " + keysOut);
         logger.debug("VALUE " + valueOut);
