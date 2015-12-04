@@ -3,6 +3,7 @@
 package edu.liu.geoheil;
 
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,17 +23,17 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
     protected void reduce(TextPair key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
 
-        logger.debug("Key" + key);
-        logger.debug("Text" + values);
+      /* here comes the reducer code */
+        logger.debug("KEY " + key);
+        values.forEach(v -> join(v));
+        context.write(resultKey, resultOutput);
+    }
 
+    private void join(Text v) {
+        logger.debug("Text " + v);
         resultKey.set("KEY");
         resultOutput.set("GGG");
 
-      /* here comes the reducer code */
-
-//        values.forEach(v -> join(v));
-
-        context.write(resultKey, resultOutput);
     }
 
 }
