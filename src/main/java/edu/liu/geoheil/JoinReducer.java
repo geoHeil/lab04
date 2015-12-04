@@ -3,7 +3,6 @@
 package edu.liu.geoheil;
 
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,5 +33,4 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
         logger.debug("VALUE " + v);
         resultOutput.set(v);
     }
-
 }
