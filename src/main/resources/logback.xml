@@ -7,8 +7,8 @@
         </layout>
     </appender>
 
-    <logger name="edu.liu.geoheil.JoinMapper1" level="info"/>
-    <logger name="edu.liu.geoheil.JoinMapper2" level="info"/>
+    <logger name="edu.liu.geoheil.JoinMapper1" level="debug"/>
+    <logger name="edu.liu.geoheil.JoinMapper2" level="debug"/>
     <logger name="edu.liu.geoheil.JoinReducer" level="debug"/>
     <logger name="edu.liu.geoheil" level="debug"/>
 

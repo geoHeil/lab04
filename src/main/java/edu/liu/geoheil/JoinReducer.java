@@ -25,15 +25,14 @@ public class JoinReducer extends Reducer<TextPair, Text, Text, Text> {
 
       /* here comes the reducer code */
         logger.debug("KEY " + key);
+        resultKey.set(key.getFirst());
         values.forEach(v -> join(v));
         context.write(resultKey, resultOutput);
     }
 
     private void join(Text v) {
-        logger.debug("Text " + v);
-        resultKey.set("KEY");
-        resultOutput.set("GGG");
-
+        logger.debug("VALUE " + v);
+        resultOutput.set(v);
     }
 
 }
