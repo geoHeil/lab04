@@ -15,12 +15,17 @@ The "basic" exercise resides here: https://www.ida.liu.se/~TDDD43/themes/themeNO
 Make sure the local hadoop cluster is running using: 
 
 Compile the following hadoop container https://github.com/lresende/docker-yarn-cluster
-and then run it using
+and then run it using.
+Create a jar using `gradle jar` and copy the files into the master-docker container
 ```
 docker-compose up -d
+docker cp build/libs/lab04-current.geoHeil-0.1.0.jar namenode:/home/program.jar
+docker cp src/main/resources/speciesReference-listOfProducts/attribute-speciesReference namenode:/home/a1
+docker cp src/main/resources/speciesReference-listOfReactants/attribute-speciesReference namenode:/home/a2
 docker exec -ti namenode /bin/bash
 ```
-Create a jar using `gradle jar`. It can be submitted as a job to the hadoop cluster as follows:
+
+The jar can be submitted as a job  on HDFS to the hadoop cluster as follows:
 ```
 cd $HADOOP_PREFIX
 
@@ -44,6 +49,7 @@ bin/hdfs dfs -cat output/*
  - Add the unregistered VCS root if applicable
  - Index all remote maven repositories if applicable
  - Confirm that the project language level is at least *Java 8 - Lambdas, type annotations etc.*
+ - ---> can run a stand-alone hadop without docker
  
 **Run Configurations**
 
