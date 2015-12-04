@@ -43,18 +43,23 @@ public class JoinMapper1
          then the dewey_pid of reaction would be 1.1 --> (-) 5 as 4 for digits + point
          */
         String realKey = str.substring(0, str.indexOf(' '));
+        String realValue = str.substring(str.indexOf(' ') + 1);
+
         textFirst.set(realKey.substring(0, realKey.length() - 4));
-        textSecond.set(realKey);
+        textSecond.set("mapper1");
         keysOut.set(textFirst, textSecond);
 
+        String attr = realValue.substring(0, realValue.indexOf(' '));
+        String attrVal = realValue.substring(realValue.indexOf(' ') + 1);
         /**
          * check whether the attribute name is “species” and the attribute value contains the string “P_KK”.
          * If this is true, retrieve the prefix of the current dewey_pid and send it as the key to the reduce task.
+         * Also pass the ID of the mapper as this will be important for the Join.
          */
-        valueOut.set(str.substring(str.indexOf(' ') + 1));
+        if (("species".equals(attr)) && attrVal.contains("P_KK")) {
 
-        if (value.toString().contains("P_KK")) {
-            // Only filter for P_KK items
+            valueOut.set(realValue.substring(realValue.indexOf(' ') + 1));
+
             logger.debug("KEY " + keysOut);
             logger.debug("VALUE " + valueOut);
 
