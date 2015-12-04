@@ -1,70 +1,70 @@
-1.1.8.1 id r1a reaction
-1.1.8.1 metaid _506812 reaction
-1.1.8.1 name binding of MAPKKK activator reaction
-1.1.8.2 id r1b reaction
-1.1.8.2 metaid _506833 reaction
-1.1.8.2 name MAPKKK activation reaction
-1.1.8.2 reversible false reaction
-1.1.8.3 id r2a reaction
-1.1.8.3 metaid _506853 reaction
-1.1.8.3 name binding of MAPKKK inactivator reaction
-1.1.8.4 id r2b reaction
-1.1.8.4 metaid _506873 reaction
-1.1.8.4 name MAPKKK inactivation reaction
-1.1.8.4 reversible false reaction
-1.1.8.5 id r3a reaction
-1.1.8.5 metaid _506893 reaction
-1.1.8.5 name binding P-MAPKKK and MAPKK reaction
-1.1.8.6 id r3b reaction
-1.1.8.6 metaid _506913 reaction
-1.1.8.6 name phosphorylation of MAPKK reaction
-1.1.8.6 reversible false reaction
-1.1.8.7 id r4a reaction
-1.1.8.7 metaid _506933 reaction
-1.1.8.7 name binding MAPKK-Pase and P-MAPKK reaction
-1.1.8.8 id r4b reaction
-1.1.8.8 metaid _506953 reaction
-1.1.8.8 name dephosphorylation of P-MAPKK reaction
-1.1.8.8 reversible false reaction
-1.1.8.9 id r5a reaction
-1.1.8.9 metaid _506973 reaction
-1.1.8.9 name binding P-MAPKKK and P-MAPKK reaction
-1.1.8.10 id r5b reaction
-1.1.8.10 metaid _506993 reaction
-1.1.8.10 name phosphorylation of P-MAPKK reaction
-1.1.8.10 reversible false reaction
-1.1.8.11 id r6a reaction
-1.1.8.11 metaid _507013 reaction
-1.1.8.11 name binding MAPKK-Pase and PP-MAPKK reaction
-1.1.8.12 id r6b reaction
-1.1.8.12 metaid _507033 reaction
-1.1.8.12 name dephosphorylation of PP-MAPKK reaction
-1.1.8.12 reversible false reaction
-1.1.8.13 id r7a reaction
-1.1.8.13 metaid _507053 reaction
-1.1.8.13 name binding MAPK and PP-MAPKK reaction
-1.1.8.14 id r7b reaction
-1.1.8.14 metaid _507073 reaction
-1.1.8.14 name phosphorylation of MAPK reaction
-1.1.8.14 reversible false reaction
-1.1.8.15 id r8a reaction
-1.1.8.15 metaid _507093 reaction
-1.1.8.15 name binding MAPK-Pase and P-MAPK reaction
-1.1.8.16 id r8b reaction
-1.1.8.16 metaid _507113 reaction
-1.1.8.16 name dephosphorylation of P-MAPK reaction
-1.1.8.16 reversible false reaction
-1.1.8.17 id r9a reaction
-1.1.8.17 metaid _507133 reaction
-1.1.8.17 name binding PP-MAPKK and P-MAPK reaction
-1.1.8.18 id r9b reaction
-1.1.8.18 metaid _507153 reaction
-1.1.8.18 name phosphorylation of P-MAPK reaction
-1.1.8.18 reversible false reaction
-1.1.8.19 id r10a reaction
-1.1.8.19 metaid _507173 reaction
-1.1.8.19 name binding MAPK-Pase and PP-MAPK reaction
-1.1.8.20 id r10b reaction
-1.1.8.20 metaid _507193 reaction
-1.1.8.20 name dephosphorylation of PP-MAPK reaction
-1.1.8.20 reversible false reaction
+1.1.8.1 id r1a
+1.1.8.1 metaid _506812
+1.1.8.1 name binding of MAPKKK activator
+1.1.8.2 id r1b
+1.1.8.2 metaid _506833
+1.1.8.2 name MAPKKK activation
+1.1.8.2 reversible false
+1.1.8.3 id r2a
+1.1.8.3 metaid _506853
+1.1.8.3 name binding of MAPKKK inactivator
+1.1.8.4 id r2b
+1.1.8.4 metaid _506873
+1.1.8.4 name MAPKKK inactivation
+1.1.8.4 reversible false
+1.1.8.5 id r3a
+1.1.8.5 metaid _506893
+1.1.8.5 name binding P-MAPKKK and MAPKK
+1.1.8.6 id r3b
+1.1.8.6 metaid _506913
+1.1.8.6 name phosphorylation of MAPKK
+1.1.8.6 reversible false
+1.1.8.7 id r4a
+1.1.8.7 metaid _506933
+1.1.8.7 name binding MAPKK-Pase and P-MAPKK
+1.1.8.8 id r4b
+1.1.8.8 metaid _506953
+1.1.8.8 name dephosphorylation of P-MAPKK
+1.1.8.8 reversible false
+1.1.8.9 id r5a
+1.1.8.9 metaid _506973
+1.1.8.9 name binding P-MAPKKK and P-MAPKK
+1.1.8.10 id r5b
+1.1.8.10 metaid _506993
+1.1.8.10 name phosphorylation of P-MAPKK
+1.1.8.10 reversible false
+1.1.8.11 id r6a
+1.1.8.11 metaid _507013
+1.1.8.11 name binding MAPKK-Pase and PP-MAPKK
+1.1.8.12 id r6b
+1.1.8.12 metaid _507033
+1.1.8.12 name dephosphorylation of PP-MAPKK
+1.1.8.12 reversible false
+1.1.8.13 id r7a
+1.1.8.13 metaid _507053
+1.1.8.13 name binding MAPK and PP-MAPKK
+1.1.8.14 id r7b
+1.1.8.14 metaid _507073
+1.1.8.14 name phosphorylation of MAPK
+1.1.8.14 reversible false
+1.1.8.15 id r8a
+1.1.8.15 metaid _507093
+1.1.8.15 name binding MAPK-Pase and P-MAPK
+1.1.8.16 id r8b
+1.1.8.16 metaid _507113
+1.1.8.16 name dephosphorylation of P-MAPK
+1.1.8.16 reversible false
+1.1.8.17 id r9a
+1.1.8.17 metaid _507133
+1.1.8.17 name binding PP-MAPKK and P-MAPK
+1.1.8.18 id r9b
+1.1.8.18 metaid _507153
+1.1.8.18 name phosphorylation of P-MAPK
+1.1.8.18 reversible false
+1.1.8.19 id r10a
+1.1.8.19 metaid _507173
+1.1.8.19 name binding MAPK-Pase and PP-MAPK
+1.1.8.20 id r10b
+1.1.8.20 metaid _507193
+1.1.8.20 name dephosphorylation of PP-MAPK
+1.1.8.20 reversible false

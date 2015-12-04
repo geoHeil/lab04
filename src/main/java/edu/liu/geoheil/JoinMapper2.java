@@ -10,6 +10,10 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 // vv JoinMapper2
+
+/**
+ * dealing with reactants / reference
+ */
 public class JoinMapper2
         extends Mapper<LongWritable, Text, TextPair, Text> {
 

@@ -53,7 +53,7 @@ public class XMLCounter implements ContentHandler {
             System.out.println("ATTR " + printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
             String pathAttr = "result/" + qName + "-" + parent.peek() + "/attribute-" + qName;
             List<String> fileContentAttr = new ArrayList<>();
-            fileContentAttr.add(printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i) + " " + qName);
+            fileContentAttr.add(printStack(deweyNumber) + " " + attributes.getQName(i) + " " + attributes.getValue(i));
             try {
                 writeFile(fileContentAttr, pathAttr);
             } catch (IOException e) {

@@ -15,6 +15,8 @@ import java.io.IOException;
  * “species” and the attribute value contains the string “P_KK”. If this is true,
  * retrieve the prefix of the current dewey_pid and send it as the key to the reduce
  * task.
+ * <p>
+ * dealing with list of products / reference
  */
 //vv JoinMapper1
 public class JoinMapper1
@@ -44,11 +46,19 @@ public class JoinMapper1
         textFirst.set(realKey.substring(0, realKey.length() - 4));
         textSecond.set(realKey);
         keysOut.set(textFirst, textSecond);
+
+        /**
+         * check whether the attribute name is “species” and the attribute value contains the string “P_KK”.
+         * If this is true, retrieve the prefix of the current dewey_pid and send it as the key to the reduce task.
+         */
         valueOut.set(str.substring(str.indexOf(' ') + 1));
 
-        logger.debug("KEY " + keysOut);
-        logger.debug("VALUE " + valueOut);
+        if (value.toString().contains("P_KK")) {
+            // Only filter for P_KK items
+            logger.debug("KEY " + keysOut);
+            logger.debug("VALUE " + valueOut);
 
-        context.write(keysOut, valueOut);
+            context.write(keysOut, valueOut);
+        }
     }
 }
